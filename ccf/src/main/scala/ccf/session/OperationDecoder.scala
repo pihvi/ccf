@@ -1,7 +1,7 @@
 package ccf.session
 
-import ccf.operation.Operation
+import ccf.tree.operation.TreeOperation
 
-trait OperationDecoder[T <: Operation] {
-  def decode(any: Any): T
+trait OperationDecoder {
+  def decode(any: Any): TreeOperation
 }
