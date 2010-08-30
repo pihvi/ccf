@@ -41,6 +41,7 @@ class Project(info: ProjectInfo) extends ParentProject(info) with IdeaProject { 
     val specs = "org.scala-tools.testing" % "specs_2.8.0" % "1.6.5" % testScopeDependency
     val mockito = "org.mockito" % "mockito-core" % "1.8.4" % testScopeDependency
     val scalacheck = "org.scala-tools.testing" % "scalacheck" % "1.5" % testScopeDependency
+    val jetty7 = "org.eclipse.jetty" % "jetty-webapp" % "7.1.0.RC0"
   }
 
   class TextAppProject(info: ProjectInfo) extends AbstractProject(info) {
@@ -57,8 +58,6 @@ class Project(info: ProjectInfo) extends ParentProject(info) with IdeaProject { 
   class PerftestProject(info: ProjectInfo) extends AbstractProject(info) {
     override def manifestClassPath = Some(distFileJars.map(_.getName).mkString(" "))
     override def mainClass = Some("perftest.Perftest")
-
-    val jetty7 = "org.eclipse.jetty" % "jetty-webapp" % "7.1.0.RC0"
 
     lazy val dist = zipTask(transitiveDepJars, "dist", distName) dependsOn (`package`)
 
