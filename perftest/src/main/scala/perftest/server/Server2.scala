@@ -31,7 +31,7 @@ import ccf.tree.operation.{TreeOperationDecoder, TreeOperation}
 
 class HttpRequestHandler extends AbstractHandler {
   override def handle(target: String, req: Request, httpReq: HttpServletRequest, httpResp: HttpServletResponse) {
-    var requestBody = readRequestBody(req)
+    val requestBody = readRequestBody(req)
     val request = JsonDecoder.decodeRequest(requestBody)
     val operationDecoder = new TreeOperationDecoder {
       protected def parseModifier(encodedValue: Any) = null
