@@ -78,7 +78,7 @@ class HttpRequestHandler extends AbstractHandler {
   }
 }
 
-object Server {
+object Server2 {
   def run(url: URL)= { 
     val server = new Jetty7Server(url.getPort)
     val connector = new SelectChannelConnector()
